@@ -1,5 +1,8 @@
 import React from "react";
-import { defineConfig, TextField } from "tinacms";
+import {
+  UsernamePasswordAuthJSProvider,
+} from "tinacms-authjs/dist/tinacms";
+import { defineConfig, TextField, LocalAuthProvider } from "tinacms";
 import { ReferenceField } from "tinacms";
 import { FeaturesBlockTemplate } from "../src/components/Features/template";
 import { HeroBlockTemplate } from "../src/components/Hero/template";
