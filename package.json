@@ -5,7 +5,7 @@
     "docusaurus": "docusaurus",
     "tina": "tinacms dev -c \"yarn start\" ",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "tinacms build --partial-reindex && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -23,7 +23,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "tinacms": "^1.5.20",
-    "title": "^3.5.3"
+    "tinacms-gitprovider-github": "^1.0.3",
+    "title": "^3.5.3",
+    "upstash-redis-level": "^1.1.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.2.0"
