@@ -1,7 +1,4 @@
 import React from "react";
-import {
-  UsernamePasswordAuthJSProvider,
-} from "tinacms-authjs/dist/tinacms";
 import { defineConfig, TextField, LocalAuthProvider } from "tinacms";
 import { ReferenceField } from "tinacms";
 import { FeaturesBlockTemplate } from "../src/components/Features/template";
@@ -824,9 +821,7 @@ const PagesCollection = {
 };
 
 export default defineConfig({
-  authProvider: isLocal
-    ? new LocalAuthProvider()
-    : new UsernamePasswordAuthJSProvider(),
+  authProvider: new LocalAuthProvider()
   contentApiUrlOverride: "/api/tina/gql",
   build: {
     publicFolder: "public",
