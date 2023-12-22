@@ -14,6 +14,8 @@ const branch =
   process.env.HEAD ||
   "main";
 
+  const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
+
 const WarningIcon = (props) => {
   return (
     <svg
@@ -819,17 +821,19 @@ const PagesCollection = {
 };
 
 export default defineConfig({
-  branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
-  token: process.env.TINA_TOKEN, // Get this from tina.io
+  authProvider: isLocal
+    ? new LocalAuthProvider()
+    : new UsernamePasswordAuthJSProvider(),
+  contentApiUrlOverride: "/api/tina/gql",
   build: {
+    publicFolder: "public",
     outputFolder: "admin",
-    publicFolder: "static",
   },
   media: {
     tina: {
-      mediaRoot: "img",
-      publicFolder: "static",
+      mediaRoot: "",
+      publicFolder: "public",
+      static: true,
     },
   },
   schema: {
