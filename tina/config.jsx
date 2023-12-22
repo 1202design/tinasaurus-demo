@@ -821,7 +821,7 @@ const PagesCollection = {
 };
 
 export default defineConfig({
-  authProvider: new LocalAuthProvider()
+  authProvider: new LocalAuthProvider(),
   contentApiUrlOverride: "/api/tina/gql",
   build: {
     publicFolder: "public",
